@@ -1,4 +1,4 @@
-TPvFP<-function(dir){
+TPvFP<-function(dir)TPvFP<-function(dir){
   
   require(ggplot2)
   
@@ -82,17 +82,19 @@ TPvFP<-function(dir){
   for (i in 1:length(myfiles)){
     
     p <- ggplot(myfiles[[i]], aes(x=fp, y=tp), environment=environment(), 
-                  xlab="False Positives", ylab="True Positives") 
+                xlab="False Positives", ylab="True Positives") 
     
     p2 <- p + stat_sum(aes(size=factor(..n..)), geom ="point") + 
       geom_rect(aes(xmin=fc, xmax=fa, ymin=tc, ymax=ta), alpha=0.02, fill="blue") +
       geom_rect(aes(xmin=fb, xmax=fc, ymin=tc, ymax=ta), alpha=0.02, fill="green") +
       geom_rect(aes(xmin=fb, xmax=fc, ymin=tb, ymax=tc), alpha=0.02, fill="blue") +
-      geom_rect(aes(xmin=fc, xmax=fa, ymin=tb, ymax=tc), alpha=0.02, fill="red")
+      geom_rect(aes(xmin=fc, xmax=fa, ymin=tb, ymax=tc), alpha=0.02, fill="red") +
+      labs(x = "False Positives", y = "True Positives", title = "True Positives
+           by False Positives")
     
     print(p2)
     
-    }
+  }
   
   dev.off()
   
