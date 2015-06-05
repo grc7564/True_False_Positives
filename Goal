@@ -1,0 +1,2 @@
+Eventual goal is to output one scatterplot with different colors representing the different input files. Can't seem to figure 
+this out using ggplot2. 
